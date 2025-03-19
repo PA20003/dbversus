@@ -126,7 +126,7 @@ const avance = computed(() => {
 const columns = [
     { name: 'name', required: true, label: 'Prueba (Tiempos en segundos)', align: 'left', field: row => row.name, format: val => `${val}`, sortable: true },
     { name: 'total', label: 'Total', field: 'total' },
-    { name: 'a', align: 'center', label: 'A', field: 'a' },
+    { name: 'a', label: 'A', field: 'a' },
     { name: 'b', label: 'B', field: 'b' },
     { name: 'c', label: 'C', field: 'c' },
     { name: 'd', label: 'D', field: 'd' },
