@@ -5,7 +5,7 @@ let hostdb = process.env.HOST_DB || "localhost";
 
 const sequelize = new Sequelize({
   dialect: "oracle",
-  database: "XE",
+  database: "cafeteria",
   username: "system",
   password: "oracle",
   host: hostdb,
