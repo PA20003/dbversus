@@ -47,12 +47,10 @@
                 </div>
                 <div class="col-3 q-ml-lg">
                     <q-btn size="lg" color="primary">Iniciar Pruebas</q-btn>
-                    <q-circular-progress show-value font-size="12px" size="50px" :thickness="0.22" color="teal"
-                        track-color="grey-3" class="q-ma-md">
-                        {{ }}%
+                    <q-circular-progress show-value font-size="12px" size="50px" :thickness="0.22" color="teal" track-color="grey-3" class="q-ma-md">
+                        {{ avance }}%
                     </q-circular-progress>
                 </div>
-
             </div>
         </div>
 
