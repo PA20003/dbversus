@@ -3,17 +3,18 @@
 
 # COMANDO
 # docker compose -f ./oracle/docker-compose.yml up -d
-version: '3.8'
+
 
 services:
   oracle:
-    image: oracleinanutshell/oracle-xe-11g:latest
+    image: gvenzl/oracle-free:23.5-slim
     container_name: oracle
     restart: unless-stopped
     environment:
+      ORACLE_PASSWORD: "oracle"  # Contraseña de SYS y SYSTEM
       ORACLE_DATABASE: "cafeteria"  # Nombre de la base de datos que se creará
     ports:
-      - "1521:1521"  # Solo el puerto de Oracle
+      - "1521:1521"  # Puerto de Oracle
     volumes:
       - ./cafeteria.sql:/docker-entrypoint-initdb.d/cafeteria.sql  # Importación del archivo SQL
     deploy:
