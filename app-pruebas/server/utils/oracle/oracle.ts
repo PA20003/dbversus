@@ -4,27 +4,36 @@ import { Sequelize, DataTypes } from "sequelize";
 let hostdb = process.env.HOST_DB || "localhost";
 
 const sequelize = new Sequelize({
-  dialect: "oracle",
-  database: "cafeteria",
-  username: "cafeteria",
-  password: "oracle",
-  host: hostdb,
+  dialect: 'oracle', // Especificamos que usamos Oracle
+  host: 'localhost',
   port: 1521,
+  username: 'CAFETERIA',
+  password: 'oracle',
+  database: 'FREE', // Nombre del servicio (en Oracle, esto es el "service name")
   dialectOptions: {
-    connectString: `${hostdb}:1521/`,
+    connectString: 'localhost:1521/FREE', // Formato: host:port/service_name
   },
 });
 
 // Tabla Categorias
 const categorias = sequelize.define(
-  "categorias",
+  "CATEGORIAS",
   {
-    id: { type: DataTypes.INTEGER, primaryKey: true },
-    nombre: { type: DataTypes.STRING, allowNull: false },
+    ID: { // Usamos mayúsculas para coincidir con Oracle
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      field: "ID", 
+    },
+    NOMBRE: {
+      type: DataTypes.STRING(145), // VARCHAR2(145)
+      allowNull: false,
+      field: "NOMBRE",
+    },
   },
   {
     timestamps: false,
-    schema: 'cafeteria', // Esquema de la base de datos
+    schema: "CAFETERIA",
+    tableName: "CATEGORIAS",
   }
 );
 
