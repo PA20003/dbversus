@@ -7,12 +7,11 @@
 
 services:
   oracle:
-    image: gvenzl/oracle-free:23.5-slim
+    image: gvenzl/oracle-free:23.5-amd64
     container_name: oracle
     restart: unless-stopped
     environment:
       ORACLE_PASSWORD: "oracle"  # Contraseña de SYS y SYSTEM
-      ORACLE_DATABASE: "cafeteria"  # Nombre de la base de datos que se creará
     ports:
       - "1521:1521"  # Puerto de Oracle
     volumes:
@@ -21,7 +20,8 @@ services:
       resources:
         limits:
           cpus: '1'
-          memory: 1G
+          memory: 2G
         reservations:
           cpus: '1'
-          memory: 1G
+          memory: 2G    
+

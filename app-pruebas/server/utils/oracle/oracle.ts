@@ -6,12 +6,12 @@ let hostdb = process.env.HOST_DB || "localhost";
 const sequelize = new Sequelize({
   dialect: "oracle",
   database: "cafeteria",
-  username: "system",
+  username: "cafeteria",
   password: "oracle",
   host: hostdb,
   port: 1521,
   dialectOptions: {
-    connectString: `${hostdb}:1521/XE`,
+    connectString: `${hostdb}:1521/`,
   },
 });
 
@@ -22,7 +22,10 @@ const categorias = sequelize.define(
     id: { type: DataTypes.INTEGER, primaryKey: true },
     nombre: { type: DataTypes.STRING, allowNull: false },
   },
-  { timestamps: false }
+  {
+    timestamps: false,
+    schema: 'cafeteria', // Esquema de la base de datos
+  }
 );
 
 // Tabla Productos
